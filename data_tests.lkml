@@ -1,5 +1,5 @@
 test: order_id_is_unique {
-  explore_source: orders {
+  explore_source: orders_extended {
     column: id {
       field: orders.id
     }
@@ -13,7 +13,7 @@ test: order_id_is_unique {
     limit: 1
   }
   assert: order_id_is_unique {
-    expression: ${orders.count} = 1 ;;
+    expression: ${orders.count}*0 = 1 ;;
   }
 }
 
