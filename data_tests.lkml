@@ -13,7 +13,7 @@ test: order_id_is_unique {
     limit: 1
   }
   assert: order_id_is_unique {
-    expression: ${orders.count}*0 = 1 ;;
+    expression: ${orders.count}*0 = 3 ;;
   }
 }
 
