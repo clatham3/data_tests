@@ -26,6 +26,30 @@ view: users {
     sql: ${TABLE}.created_at ;;
   }
 
+  parameter: field_picker {
+    label: "Fields"
+    type: unquoted
+    allowed_value: {
+      label: "Name"
+      value: "name"
+    }
+    allowed_value: {
+      label: "Epoch"
+      value: "epoch_at"
+    }
+    allowed_value: {
+      label: "Age"
+      value: "age"
+    }
+    default_value: "Age"
+  }
+
+  dimension: field {
+    label_from_parameter: field_picker
+    type: number
+    sql: ${TABLE}.{% parameter field_picker %} ;;
+  }
+
   dimension: epoch_at {
     type: number
     sql: ${TABLE}.epoch_at ;;
@@ -41,10 +65,10 @@ view: users {
     sql: ${TABLE}.yyyymmdd_at ;;
   }
 
-  dimension: this_name {
-    type: string
-    sql: ${TABLE}.name ;;
-  }
+  # dimension: this_name {
+  #   type: string
+  #   sql: ${TABLE}.name ;;
+  # }
 
   measure: count {
     type: count

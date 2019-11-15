@@ -1,20 +1,12 @@
 test: order_id_is_unique {
-  explore_source: orders_extended {
+  explore_source: orders {
     column: id {
       field: orders.id
     }
-    column: count {
-      field: orders.count
-    }
-    sort: {
-      field: count
-      desc: yes
-    }
-    limit: 1
   }
-  assert: order_id_is_unique {
-    expression: ${orders.count}*0 = 3 ;;
-  }
+#   assert: order_id_is_unique {
+#     expression: ${orders.id} < 0 ;;
+#   }
 }
 
 # test: order_items_id_is_unique {
