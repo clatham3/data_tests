@@ -42,11 +42,6 @@ view: orders {
     default_value: "order_amount"
   }
 
-  dimension: string_test {
-    type: string
-    sql: 'Neglect,/&Abuse' ;;
-  }
-
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
