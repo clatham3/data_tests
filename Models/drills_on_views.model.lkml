@@ -9,8 +9,8 @@ explore: orders {
 }
 explore: users {}
 
-datagroup: test_my_data {
+datagroup: datagroup_label_test {
   max_cache_age: "24 hours"
-  label: "This is descriptive"
-  description: "This is really just a test"
+  label: "Datagroup Label"
+  description: "This is refreshed every 24 hours"
 }
