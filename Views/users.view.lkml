@@ -26,28 +26,15 @@ view: users {
     sql: ${TABLE}.created_at ;;
   }
 
-  parameter: field_picker {
-    label: "Fields"
-    type: unquoted
-    allowed_value: {
-      label: "Name"
-      value: "name"
+  dimension: age_greater_than_50 {
+    case: {
+      when: {
+        sql: ${age} > 50 ;;
+        label: "{{_localization[\"age_gt_50\"]}}"
+      }
+      else: "{{_localization[\"age_lt_50\"]}}"
     }
-    allowed_value: {
-      label: "Epoch"
-      value: "epoch_at"
-    }
-    allowed_value: {
-      label: "Age"
-      value: "age"
-    }
-    default_value: "Age"
-  }
-
-  dimension: field {
-    label_from_parameter: field_picker
-    type: number
-    sql: ${TABLE}.{% parameter field_picker %} ;;
+    allow_fill: yes
   }
 
   dimension: epoch_at {
@@ -64,11 +51,6 @@ view: users {
     type: number
     sql: ${TABLE}.yyyymmdd_at ;;
   }
-
-  # dimension: this_name {
-  #   type: string
-  #   sql: ${TABLE}.name ;;
-  # }
 
   measure: count {
     type: count

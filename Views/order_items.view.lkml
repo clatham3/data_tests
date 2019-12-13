@@ -28,4 +28,13 @@ view: order_items {
     type: count
     drill_fields: [id]
   }
+
+  measure: counttest {
+    type: number
+    sql:
+    {% if _model._name == 'drills_on_bugs' %}
+      ${count}*-1
+    {% else %} ${count} {% endif %}
+    ;;
+  }
 }

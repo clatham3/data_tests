@@ -5,9 +5,6 @@ include: "/*.dashboard"
 include: "/data_tests.lkml"
 
 label: "testing"
-datagroup: datagroup_label_test {
-  max_cache_age: "24 hours"
-}
 explore: order_items {
   join: orders {
     type: left_outer
