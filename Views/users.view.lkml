@@ -29,7 +29,7 @@ view: users {
   dimension: age_greater_than_50 {
     case: {
       when: {
-        sql: ${age} > 50 ;;
+        sql: ${created_date} > '2019-01-01';;
         label: "{{_localization[\"age_gt_50\"]}}"
       }
       else: "{{_localization[\"age_lt_50\"]}}"
@@ -50,6 +50,12 @@ view: users {
   dimension: yyyymmdd_at {
     type: number
     sql: ${TABLE}.yyyymmdd_at ;;
+  }
+
+  dimension: tier_test {
+    type: tier
+    tiers: [10,20,30,40,50]
+    sql: ${age} ;;
   }
 
   measure: count {
