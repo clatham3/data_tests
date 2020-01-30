@@ -3,11 +3,10 @@ connection: "looker_external"
 include: "/Views/*.view"
 include: "/*.dashboard"
 include: "/data_tests.lkml"
+include: "/datagroup.lkml"
 
 label: "Drills On Views"
-datagroup: datagroup_label_test {
-  max_cache_age: "24 hours"
-}
+
 explore: order_items {
   join: orders {
     type: left_outer
@@ -19,9 +18,4 @@ explore: order_items {
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
-}
-
-explore: users {
-  label: "this may be in the api call"
-  tags: ["users","this explore is small","but its heart is huge"]
 }

@@ -26,17 +26,6 @@ view: users {
     sql: ${TABLE}.created_at ;;
   }
 
-  dimension: age_greater_than_50 {
-    case: {
-      when: {
-        sql: ${created_date} > '2019-01-01';;
-        label: "{{_localization[\"age_gt_50\"]}}"
-      }
-      else: "{{_localization[\"age_lt_50\"]}}"
-    }
-    allow_fill: yes
-  }
-
   dimension: epoch_at {
     type: number
     sql: ${TABLE}.epoch_at ;;
