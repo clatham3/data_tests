@@ -2,6 +2,7 @@ include: "/Views/*.view"
 
 datagroup: datagroup_label_test {
   sql_trigger: SELECT COUNT(*) FROM users ;;
+  label: "Wow"
 }
 
 explore: order_items {
