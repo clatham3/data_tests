@@ -1,5 +1,3 @@
-include: "/Views/*.view"
-
 datagroup: datagroup_label_test {
   sql_trigger: SELECT COUNT(*) FROM users ;;
   label: "Wow"
@@ -27,5 +25,39 @@ view: orders_dt_suggestions {
   filter: date_filter {
     type: date_time
     default_value: "7 days ago for 7 days"
+  }
+
+  dimension: id {
+    primary_key: yes
+    type: number
+    sql: ${TABLE}.id ;;
+  }
+
+  dimension_group: created {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.created_at ;;
+  }
+
+  dimension: status {
+    type: string
+    sql: ${TABLE}.status ;;
+  }
+
+  dimension: user_id {
+    type: number
+    sql: ${TABLE}.user_id ;;
+  }
+
+  measure: count {
+    type: count
   }
 }
