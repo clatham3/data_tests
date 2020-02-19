@@ -5,15 +5,27 @@ datagroup: datagroup_label_test {
   label: "Wow"
 }
 
-explore: order_items {
-  join: orders {
-    type: left_outer
-    sql_on: ${order_items.order_id} = ${orders.id} ;;
-    relationship: many_to_one
+explore: orders_dt_suggestions {}
+view: orders_dt_suggestions {
+  derived_table: {
+    sql:
+      SELECT *
+      FROM "LOOKER_TEST"."ORDERS"
+      WHERE
+        status = {% parameter status_filter %}
+        AND {% condition date_filter %} created_at {% endcondition %}
+    ;;
   }
-  join: users {
-    type: left_outer
-    sql_on: ${orders.user_id} = ${users.id} ;;
-    relationship: many_to_one
+
+  parameter: status_filter {
+    type: string
+    suggest_explore: orders
+    suggest_dimension: orders.status
+    default_value: "confirmed"
+  }
+
+  filter: date_filter {
+    type: date_time
+    default_value: "7 days ago for 7 days"
   }
 }
