@@ -3,7 +3,6 @@ datagroup: datagroup_label_test {
   label: "Wow"
 }
 
-explore: orders_dt_suggestions {}
 view: orders_dt_suggestions {
   derived_table: {
     sql:
