@@ -16,8 +16,8 @@ view: orders_dt_suggestions {
 
   parameter: status_filter {
     type: string
-    suggest_explore: orders
-    suggest_dimension: orders.status
+#     suggest_explore: orders
+#     suggest_dimension: orders.status
     default_value: "confirmed"
   }
 
