@@ -17,7 +17,7 @@
     col: 0
     width: 8
     height: 6
-  - name: this is a test
+  - name: Testing
     type: text
     title_text: this is a test
     subtitle_text: this is a test
