@@ -21,8 +21,7 @@
     type: text
     title_text: this is a test
     subtitle_text: this is a test
-    body_text: This text tile is to test a LookML dashboard's ability to localize
-      a subtitle
+    body_text:
     row: 0
     col: 8
     width: 8
