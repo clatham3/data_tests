@@ -19,7 +19,7 @@
     height: 6
   - name: Testing
     type: text
-    title_text: this is a test
+    title_text: '{{ _localization["this is a test"]}}'
     subtitle_text: this is a test
     body_text:
     row: 0
